@@ -14,5 +14,9 @@
       "stylus": "^0.49.1",
       "nib": "^1.0.4",
       "mongodb" : "^3.0.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/brownlucas/base.git"
   }
 }
