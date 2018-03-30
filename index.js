@@ -50,24 +50,28 @@ app.get('/', function (req, res) {
     )
 });
 
-var url = 'mongodb://localhost:27017/myproject';
+var url = 'mongodb://localhost:27017';
 var myDb = null;
 
 // Use connect method to connect to the Server
 MongoClient.connect(url, function(err, db) {
     assert.equal(null, err);
     console.log("Connected correctly to server");
-    myDb = db;
+
+     myDb = db.db('test');
+
     // db.close();
 });
 
 app.get('/set', function (req, res) {
+    var dbOps = new DbOps(myDb);
+    console.log(dbOps.addData());
 
+    res.render('index',
+        { title : 'Home' }
+    )
 });
 
-var dbOps = new DbOps(myDb);
-
-console.log(dbOps.addData());
 
 
 app.listen(3000, function () {

@@ -8,11 +8,25 @@ var exports = module.exports = {};
 function DatabaseOperations(db) {
 
     this.addData = function () {
-        return "hi";
+        var collection = db.collection("names");
+
+        collection.findOne( {  }, function(err, item) {
+            console.log("item count = " + item);
+
+        });
+
+        return "query ran";
     };
 
     this.getData = function () {
-        return "hi";
+        var collection = db.collection("names");
+
+        collection.findOne( {  }, function(err, item) {
+            console.log("item count = " + item);
+
+        });
+
+        return "query ran";
     };
 };
 
